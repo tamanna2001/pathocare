@@ -27,8 +27,13 @@
             Doctors
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?php echo $site_url; ?>/pages/doctors.php?data=1">Psychiatrict</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+          <?php
+                                    $sql="SELECT * FROM doctors ORDER BY category ASC";
+                                    $result_cat=$connect->query($sql);
+                                    while($row_cat=$result_cat->fetch_assoc()):
+                                ?>
+            <li><a class="dropdown-item" href="<?php echo $site_url; ?>/pages/doctors.php?data=<?php echo $row_cat['id']; ?>"><?php echo $row_cat['category']; ?></a></li>
+            <?php endwhile; ?>
           </ul>
         </li>
       </ul>
