@@ -119,7 +119,7 @@
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#doctors-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>Doctors</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-file-earmark-person"></i><span>Doctors</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="doctors-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -151,6 +151,12 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo $site_url; ?>/admin/users.php">
+          <i class="bi bi-people"></i>
+          <span>Users</span>
+        </a>
+      </li><!--End User Nav-->
     </ul>
 
   </aside><!-- End Sidebar-->
