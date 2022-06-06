@@ -9,6 +9,21 @@
 
   <?php require_once('header.php'); ?>
 
+  <?php
+                                    //Doctors Data
+                                    $sql="SELECT * FROM doctors";
+                                    $result_doc=$connect->query($sql);
+                                    $row_doc=$result_doc->num_rows;
+                                    //Users Data
+                                    $sql="SELECT * FROM users";
+                                    $result_user=$connect->query($sql);
+                                    $row_user=$result_user->num_rows;
+                                    //Services Data
+                                    $sql="SELECT * FROM services";
+                                    $result_serv=$connect->query($sql);
+                                    $row_serv=$result_serv->num_rows;
+?>
+
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -34,7 +49,7 @@
                       <i class="bi bi-person-check"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1245</h6>
+                      <h6><?php echo $row_doc; ?></h6>
                     </div>
                   </div>
                 </div>
@@ -54,7 +69,7 @@
                       <i class="bi bi-clipboard-plus"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>5615</h6>
+                      <h6><?php echo $row_serv; ?></h6>
                     </div>
                   </div>
                 </div>
@@ -75,7 +90,7 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+                      <h6><?php echo $row_user; ?></h6>
                     </div>
                   </div>
 
@@ -88,6 +103,25 @@
 
       </div>
     </section>
+    <!-- Get Appointment Data -->
+    <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Get Appointment Data</h5>
+            <form action="">
+            <div class="row mb-3">
+                      <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control">
+                      </div>
+            </div>
+            <div class="row mb-3">
+                          <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Get Data</button>
+                          </div>
+                        </div>
+            </form>
+      </div>
+      </div>
 
   </main><!-- End #main -->
 

@@ -1,6 +1,7 @@
 <link rel="shortcut icon" href="../img/icon.jpg" type="image/x-icon">
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
 <script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/jquery-3.6.0.min.js"></script>
 <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -28,11 +29,11 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <?php
-                                    $sql="SELECT * FROM doctors ORDER BY category ASC";
-                                    $result_cat=$connect->query($sql);
-                                    while($row_cat=$result_cat->fetch_assoc()):
-                                ?>
-            <li><a class="dropdown-item" href="<?php echo $site_url; ?>/pages/doctors.php?data=<?php echo $row_cat['id']; ?>"><?php echo $row_cat['category']; ?></a></li>
+              $sql="SELECT * FROM categories ORDER BY name ASC";
+              $result_cat=$connect->query($sql);
+              while($row_cat=$result_cat->fetch_assoc()):
+          ?>
+            <li><a class="dropdown-item" href="<?php echo $site_url; ?>/pages/doctors.php?data=<?php echo $row_cat['id']; ?>"><?php echo $row_cat['name']; ?></a></li>
             <?php endwhile; ?>
           </ul>
         </li>
