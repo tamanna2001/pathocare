@@ -17,13 +17,13 @@
   <body class="text-center">
     <main class="form-signin w-100 m-auto">
       <form>
-        <img
+      <a href="<?php echo $site_url; ?>"><img
           class="mb-4"
           src="img/icon.jpg"
           alt="logo"
           width="75"
           height="75"
-        />
+        /></a>
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">

@@ -17,14 +17,14 @@
   <body class="text-center">
     <main class="form-signin w-100 m-auto">
       <form>
-        <img
+        <a href="<?php echo $site_url; ?>"><img
           class="mb-4"
           src="img/icon.jpg"
           alt="logo"
           width="75"
           height="75"
-        />
-        <h1 class="h3 mb-3 fw-normal">Please register here</h1>
+        /></a>
+        <h1 class="h3 mb-3 fw-normal">Register Now</h1>
 
         <div class="form-floating">
           <input
@@ -85,7 +85,7 @@
         </button>
          <br>
          <br>
-        <a type="button" herf="<?php echo $site_url; ?>/login.php" class="w-100 btn btn-lg btn-outline-secondary">Sign in</a>
+        <a type="button" href="<?php echo $site_url; ?>/login.php" class="w-100 btn btn-lg btn-outline-secondary">Sign in</a>
         <p class="mt-5 mb-3 text-muted">&copy; 2022 Pathocare</p>
       </form>
     </main>
