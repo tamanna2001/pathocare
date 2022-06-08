@@ -38,6 +38,7 @@
           </ul>
         </li>
       </ul>
+      <a type="button" class="btn btn-secondary px-4 me-md-2" href="<?php echo $site_url; ?>/pages/profile.php">My Account</a>
       <a type="button" class="btn btn-primary px-4 me-md-2" href="<?php echo $site_url; ?>/login.php">Login</a>
       <a type="button" class="btn btn-outline-secondary px-4"  href="<?php echo $site_url; ?>/register.php">Register</a>
     </div>

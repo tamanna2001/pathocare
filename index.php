@@ -40,70 +40,43 @@
         </div>
       </div>
 
-      <div class="container px-4 py-5" id="hanging-icons">
-        <h2 class="pb-2 border-bottom">Book Home Collection</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-          <div class="col d-flex align-items-start">
-            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-              <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+      <div class="container px-4 py-2" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Most popular Doctors</h2>
+        <div class="container">
+  <div class="row row-cols-3">
+  <?php
+            $sql="SELECT * FROM doctors";
+            $result_doctors=$connect->query($sql);
+            if ($result_doctors->num_rows>0) {
+              while($ru=$result_doctors->fetch_assoc()):
+                $d_id=$ru['id'];
+  ?>
+      <!--card start-->
+            <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="img/doc1.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $ru['name']; ?></h5>
+                        <p class="card-text"><?php echo $ru['degree']; ?></p>
+                        <p class="card-text"><small class="text-muted"><?php echo $ru['time']; ?></small></p>
+                        <p><a href="<?php echo $site_url; ?>/pages/book.php?id=<?php echo $ru['id']; ?>" type="button" class="btn btn-outline-primary btn-sm">Book Appointment</a></p>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h2>Online Access to Reports</h2>
-              <!-- <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-              <a href="#" class="btn btn-primary">
-                Primary button
-              </a> -->
             </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-              <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"/></svg>
-            </div>
-            <div>
-              <h2>Convenient & Time Saving.</h2>
-              <!-- <p></p>
-              <a href="#" class="btn btn-primary">
-                See more
-              </a> -->
-            </div>
-          </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-              <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"/></svg>
-            </div>
-            <div>
-              <h2>Home Collection Policy</h2>
-              <p>If the total value of all the tests/packages in the cart is Equal to or More than Rs. 2000/-, then there will be no home collection charges levied</p>
-              <a href="#" class="btn btn-primary">
-                See More
-              </a>
-            </div>
-          </div>
-        </div>
+                <?php endwhile; ?>
+                <?php
+                }else{
+                 echo "No Data Found!";
+                 } ?>
+      <!--card end-->
+</div>
+</div>
       </div>
     </main>
-
-    <footer class="py-3 my-4">
-      <div class="container">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item">
-            <a href="<?php echo $site_url; ?>/pages/about.php" class="nav-link px-2 text-muted">About us</a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo $site_url; ?>/pages/contact.php" class="nav-link px-2 text-muted">Contact us</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">License</a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo $site_url; ?>/pages/privacy.php" class="nav-link px-2 text-muted">Privacy & Policy</a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo $site_url; ?>/pages/term.php" class="nav-link px-2 text-muted">Terms & Condtion</a>
-          </li>
-        </ul>
-        <p class="text-center text-muted">© 2022 Pathocare, Inc</p>
-      </div>
-    </footer>
+    <?php require_once('footer.php'); ?>
   </body>
 </html>

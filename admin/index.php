@@ -107,7 +107,7 @@
     <div class="card">
             <div class="card-body">
             <h5 class="card-title">Get Appointment Data</h5>
-            <form action="">
+            <!-- <form action="">
             <div class="row mb-3">
                       <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-10">
@@ -119,7 +119,73 @@
                             <button type="submit" class="btn btn-primary">Get Data</button>
                           </div>
                         </div>
-            </form>
+            </form> -->
+            <!-- Appointment Data table -->
+            <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">All Appointment Data</h5>
+              <!-- Table with stripped rows -->
+              <table class="table table-bordered border-primary">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                  </tr>
+                </thead>
+                <?php
+            $sql="SELECT * FROM appointment";
+            $result_a=$connect->query($sql);
+            if ($result_a->num_rows>0) {
+              while($ru=$result_a->fetch_assoc()):
+  ?>
+                <tbody>
+                  <tr>
+                    <th scope="row"><?php echo $ru['id']; ?></th>
+                    <td>
+                      <?php
+                      $sql="SELECT * FROM doctors";
+                      $result_doc1=$connect->query($sql);
+                      while($row_doc_data=$result_doc1->fetch_assoc()):
+                        if($row_doc_data['id']==$ru['doc_id']){
+                          echo $row_doc_data['name'];
+                        }
+                      endwhile;
+                      ?>
+                    </td>
+                    <td><?php
+                    $sql="SELECT * FROM users";
+                    $result_user1=$connect->query($sql);
+                    while($row_user_data=$result_user1->fetch_assoc()):
+                      if($row_user_data['id']==$ru['user_id']){
+                        echo $row_user_data['name'];
+                      }
+                    endwhile;
+                    
+                   ?></td>
+                    <td><?php echo $ru['date']; ?></td>
+                    <td><?php echo $ru['time']; ?></td>
+                  </tr>
+                </tbody>
+                <?php endwhile; ?>
+                <?php
+                }else{
+                 echo "No Data Found!";
+                 } ?>
+              </table>
+              <!-- End Table with stripped rows -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
       </div>
       </div>
 

@@ -8,7 +8,7 @@
     // $user_id=convert_uudecode($user_id);
     $user_id=1;
     //Get Data from SQL
-    $sql="SELECT * FROM users WHERE id='".$user_id."';";
+    $sql="SELECT * FROM users WHERE id='$user_id';";
     $result=$connect->query($sql);
     $row=$result->fetch_assoc();
     //Check cookie id with database id with === operator
@@ -19,6 +19,8 @@
         $user_password=$row['password'];
         $user_phone=$row['phone_number'];
         $user_age=$row['age'];
+        $user_gender=$row['gender'];
+        $user_address=$row['address'];
     // }
     // else{
     //     header("Location:login.php");
