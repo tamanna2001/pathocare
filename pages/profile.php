@@ -11,6 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <?php require_once('../header.php'); ?>
+    <?php
+if(isset($_REQUEST['delete'])){
+    $del_id=$_REQUEST['del_id'];
+    $sql="DELETE FROM appointment WHERE id='$del_id'";
+    if($connect->query($sql)==TRUE){
+      echo "<script>alert('Data deleted successfully!')</script>";
+    }
+    else{
+      echo "<script>alert('Unable to delete data!')</script>";
+    }
+}
+  ?>
 </head>
 <body>
     <br>
@@ -78,7 +90,9 @@
                    ?></td>
                     <td><?php echo $ru['date']; ?></td>
                     <td><?php echo $ru['time']; ?></td>
-                    <td><button type="button" class="btn btn-danger btn-sm">Cancel</button></td>
+                    <td>
+<form id="deleteForm" action="profile.php" method="POST"><input type="text" name="del_id" id="" value="<?php echo $ru['id']; ?>" hidden><button type="submit" name="delete" class="btn btn-outline-danger btn-sm">Cancel</button></form>
+                  </td>
                   </tr>
                 </tbody>
                 <?php endwhile; ?>

@@ -90,7 +90,7 @@
             </li> -->
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="<?php echo $site_url; ?>/pages/logout.php">
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo $site_url; ?>/logout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
