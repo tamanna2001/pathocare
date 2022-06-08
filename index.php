@@ -41,7 +41,7 @@
       </div>
 
       <div class="container px-4 py-2" id="hanging-icons">
-        <h2 class="pb-2 border-bottom">Most popular Doctors</h2>
+        <h2 class="pb-2 border-bottom">Recent Doctors</h2>
         <div class="container">
   <div class="row row-cols-3">
   <?php

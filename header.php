@@ -21,11 +21,11 @@
           <a class="nav-link active" aria-current="page" href="<?php echo $site_url; ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $site_url; ?>/pages/services.php">Services</a>
+          <a class="nav-link" href="<?php echo $site_url; ?>/pages/categories.php">Categories</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Doctors
+            All Doctors
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <?php
@@ -38,7 +38,9 @@
           </ul>
         </li>
       </ul>
+      <a type="button" class="btn btn-success px-4 me-md-2" href="<?php echo $site_url; ?>/admin">Admin Panel</a>
       <a type="button" class="btn btn-secondary px-4 me-md-2" href="<?php echo $site_url; ?>/pages/profile.php">My Account</a>
+      <a type="button" class="btn btn-outline-danger px-4 me-md-2" href="<?php echo $site_url; ?>/logout.php">Logout</a>
       <a type="button" class="btn btn-primary px-4 me-md-2" href="<?php echo $site_url; ?>/login.php">Login</a>
       <a type="button" class="btn btn-outline-secondary px-4"  href="<?php echo $site_url; ?>/register.php">Register</a>
     </div>

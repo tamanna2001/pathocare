@@ -12,7 +12,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Add Services</h1>
+      <h1>Add Category</h1>
     </div><!-- End Page Title -->
 
     <!-- Add main code -->

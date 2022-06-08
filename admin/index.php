@@ -19,9 +19,9 @@
                                     $result_user=$connect->query($sql);
                                     $row_user=$result_user->num_rows;
                                     //Services Data
-                                    $sql="SELECT * FROM services";
+                                    $sql="SELECT * FROM categories";
                                     $result_serv=$connect->query($sql);
-                                    $row_serv=$result_serv->num_rows;
+                                    $row_cate=$result_serv->num_rows;
 ?>
 
   <main id="main" class="main">
@@ -57,26 +57,6 @@
               </div>
             </div><!-- End Sales Card -->
 
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-4">
-              <div class="card info-card revenue-card">
-
-                <div class="card-body">
-                  <h5 class="card-title">Services</h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-clipboard-plus"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6><?php echo $row_serv; ?></h6>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
             <!-- Customers Card -->
             <div class="col-xxl-4 col-md-4">
 
@@ -98,7 +78,25 @@
               </div>
 
             </div><!-- End Customers Card -->
+            <!-- Categories Card -->
+            <div class="col-xxl-4 col-md-4">
+              <div class="card info-card revenue-card">
 
+                <div class="card-body">
+                  <h5 class="card-title">Categories</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-clipboard-plus"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6><?php echo $row_cate; ?></h6>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Categories Card -->
         </div><!-- End Right side columns -->
 
       </div>
@@ -133,10 +131,10 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Doctor Name</th>
-                    <th scope="col">User Name</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col">User Name</th>
                   </tr>
                 </thead>
                 <?php
@@ -148,6 +146,8 @@
                 <tbody>
                   <tr>
                     <th scope="row"><?php echo $ru['id']; ?></th>
+                    <td><?php echo $ru['date']; ?></td>
+                    <td><?php echo $ru['time']; ?></td>
                     <td>
                       <?php
                       $sql="SELECT * FROM doctors";
@@ -169,8 +169,6 @@
                     endwhile;
                     
                    ?></td>
-                    <td><?php echo $ru['date']; ?></td>
-                    <td><?php echo $ru['time']; ?></td>
                   </tr>
                 </tbody>
                 <?php endwhile; ?>

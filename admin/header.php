@@ -60,7 +60,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo $site_url; ?>/pages/profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -69,7 +69,7 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
+            <!-- <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
@@ -87,10 +87,10 @@
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>
+            </li> -->
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo $site_url; ?>/pages/logout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -134,17 +134,17 @@
       </li><!-- End Components Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#services-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Categories</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="services-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?php echo $site_url; ?>/admin/add-services.php">
-              <i class="bi bi-circle"></i><span>Add Services</span>
+            <a href="<?php echo $site_url; ?>/admin/add-category.php">
+              <i class="bi bi-circle"></i><span>Add Categories</span>
             </a>
           </li>
           <li>
-            <a href="<?php echo $site_url; ?>/admin/services.php">
-              <i class="bi bi-circle"></i><span>Services data</span>
+            <a href="<?php echo $site_url; ?>/admin/categories.php">
+              <i class="bi bi-circle"></i><span>Categories data</span>
             </a>
           </li>
         </ul>
