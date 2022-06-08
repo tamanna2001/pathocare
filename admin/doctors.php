@@ -8,6 +8,18 @@
   <title>Pathocare - Admin</title>
 
   <?php require_once('header.php'); ?>
+  <?php
+if(isset($_REQUEST['delete'])){
+    $del_id=$_REQUEST['del_id'];
+    $sql="DELETE FROM doctors WHERE id='$del_id'";
+    if($connect->query($sql)==TRUE){
+      echo "<script>alert('Data deleted successfully!')</script>";
+    }
+    else{
+      echo "<script>alert('Unable to delete data!')</script>";
+    }
+}
+  ?>
 
   <main id="main" class="main">
 
@@ -33,6 +45,7 @@
                     <th scope="col">Time</th>
                     <th scope="col">Degree</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <?php
@@ -41,7 +54,7 @@
             if ($result_doctors->num_rows>0) {
               while($ru=$result_doctors->fetch_assoc()):
                 $d_id=$ru['id'];
-  ?>
+              ?>
                 <tbody>
                   <tr>
                     <th scope="row"><?php echo $ru['id']; ?></th>
@@ -50,7 +63,24 @@
                     <td><?php echo $ru['phone_number']; ?></td>
                     <td><?php echo $ru['time']; ?></td>
                     <td><?php echo $ru['degree']; ?></td>
-                    <td><?php echo $ru['category']; ?></td>
+                    <td><?php
+                    $category = $ru['category'];
+                    $sql="SELECT * FROM categories WHERE id='$category'";
+                    $result_cat=$connect->query($sql);
+                    $row_cat=$result_cat->fetch_assoc();
+                    echo $row_cat['name'];
+              ?></td>
+                    <td>
+                    <button type="button" id="doc-update<?php echo $ru['id']; ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable">Edit</button>
+<script>
+$(document).ready(function(){
+  $("#doc-update<?php echo $ru['id']; ?>").click(function(){
+    $("#load-data").load("edit-doctor.php?data_id=<?php echo $ru['id']; ?>");
+  });
+});
+</script>
+<form id="deleteForm" action="doctors.php" method="POST"><input type="text" name="del_id" id="" value="<?php echo $ru['id']; ?>" hidden><button type="submit" name="delete" class="btn btn-outline-danger">Delete</button></form>
+                  </td>
                   </tr>
                 </tbody>
                 <?php endwhile; ?>
@@ -71,6 +101,11 @@
 
   <?php require_once('footer.php'); ?>
 
-</body>
-
+  <div class="modal fade" id="modalDialogScrollable" tabindex="-1">
+                <div class="modal-dialog modal-dialog-scrollable">
+                      <!-- Get Edit Data -->
+                      <div id="load-data"></div>
+                      </div>
+              </div><!-- End Modal Dialog Scrollable-->
+  </body>
 </html>
