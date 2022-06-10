@@ -18,10 +18,14 @@
                                     $sql="SELECT * FROM users";
                                     $result_user=$connect->query($sql);
                                     $row_user=$result_user->num_rows;
-                                    //Services Data
+                                    //Categories Data
                                     $sql="SELECT * FROM categories";
+                                    $result_cate=$connect->query($sql);
+                                    $row_cate=$result_cate->num_rows;
+                                    //Services Data
+                                    $sql="SELECT * FROM services";
                                     $result_serv=$connect->query($sql);
-                                    $row_cate=$result_serv->num_rows;
+                                    $row_serv=$result_serv->num_rows;
 ?>
 
   <main id="main" class="main">
@@ -94,7 +98,24 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div><!-- End Categories Card -->
+            <!-- Categories Card -->
+            <div class="col-xxl-4 col-md-4">
+              <div class="card info-card revenue-card">
 
+                <div class="card-body">
+                  <h5 class="card-title">Services</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-collection"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6><?php echo $row_serv; ?></h6>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div><!-- End Categories Card -->
         </div><!-- End Right side columns -->

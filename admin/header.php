@@ -1,6 +1,9 @@
 <?php
     //Add database connection
     require_once('../auth.php');
+    if($login!=1){
+      header('location: ../login.php');
+  }
 ?>
 <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
@@ -47,12 +50,12 @@
 
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          Hello, <span class="d-none d-md-block dropdown-toggle ps-2">Tamanna</span>
+          Hello, <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $user_name; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Tamanna Islam</h6>
+              <h6><?php echo $user_name; ?></h6>
               <span>Admin</span>
             </li>
             <li>

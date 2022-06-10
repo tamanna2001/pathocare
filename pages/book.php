@@ -1,6 +1,9 @@
 <?php
     //Add database connection
     require_once('../auth.php');
+    if($login!=1){
+      header('location: ../login.php');
+  }
         //Insert appointment data
         if(isset($_REQUEST['submit'])){
             if(($_REQUEST['doc_id'] == "") || ($_REQUEST['user_id'] == "")|| ($_REQUEST['date'] == "")|| ($_REQUEST['time'] == "")){
