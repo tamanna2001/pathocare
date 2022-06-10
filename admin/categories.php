@@ -8,6 +8,19 @@
   <title>Pathocare - Admin</title>
 
   <?php require_once('header.php'); ?>
+  <?php
+  // Delete data
+if(isset($_REQUEST['delete'])){
+    $del_id=$_REQUEST['del_id'];
+    $sql="DELETE FROM categories WHERE id='$del_id'";
+    if($connect->query($sql)==TRUE){
+      echo "<script>alert('Data deleted successfully!')</script>";
+    }
+    else{
+      echo "<script>alert('Unable to delete data!')</script>";
+    }
+}
+  ?>
 
   <main id="main" class="main">
 
@@ -28,6 +41,7 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <?php
@@ -40,6 +54,9 @@
                   <tr>
                     <th scope="row"><?php echo $ru['id']; ?></th>
                     <td><?php echo $ru['name']; ?></td>
+                    <td>
+                      <form id="deleteForm" action="categories.php" method="POST"><input type="text" name="del_id" id="" value="<?php echo $ru['id']; ?>" hidden><button type="submit" name="delete" class="btn btn-outline-danger">Delete</button></form>
+                    </td>
                   </tr>
                 </tbody>
                 <?php endwhile; ?>

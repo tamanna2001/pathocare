@@ -9,6 +9,7 @@
 
   <?php require_once('header.php'); ?>
   <?php
+  // Delete data
 if(isset($_REQUEST['delete'])){
     $del_id=$_REQUEST['del_id'];
     $sql="DELETE FROM doctors WHERE id='$del_id'";
