@@ -1,6 +1,9 @@
 <?php
     //Add database connection
     require_once('../auth.php');
+    if($login!=1){
+      header('location: ../login.php');
+  }
 ?>
 
 <!DOCTYPE html>
