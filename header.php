@@ -23,6 +23,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo $site_url; ?>/pages/categories.php">Categories</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $site_url; ?>/pages/services.php">Services</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             All Doctors

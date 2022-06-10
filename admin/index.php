@@ -125,7 +125,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">All Appointment Data</h5>
+              <h5 class="card-title">All Doctors Appointments</h5>
               <!-- Table with stripped rows -->
               <table class="table table-bordered border-primary">
                 <thead>
@@ -135,6 +135,7 @@
                     <th scope="col">Time</th>
                     <th scope="col">Doctor Name</th>
                     <th scope="col">User Name</th>
+                    <th scope="col">User Age</th>
                   </tr>
                 </thead>
                 <?php
@@ -165,10 +166,81 @@
                     while($row_user_data=$result_user1->fetch_assoc()):
                       if($row_user_data['id']==$ru['user_id']){
                         echo $row_user_data['name'];
+                        $user_age=$row_user_data['age'];
                       }
                     endwhile;
                     
                    ?></td>
+                   <td><?php echo $user_age; ?></td>
+                  </tr>
+                </tbody>
+                <?php endwhile; ?>
+                <?php
+                }else{
+                 echo "No Data Found!";
+                 } ?>
+              </table>
+              <!-- End Table with stripped rows -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+     <!-- Appointment Data table -->
+     <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">All Services Appointment</h5>
+              <!-- Table with stripped rows -->
+              <table class="table table-bordered border-primary">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Service Name</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">User Age</th>
+                  </tr>
+                </thead>
+                <?php
+            $sql2="SELECT * FROM service_appoint";
+            $result_b=$connect->query($sql2);
+            if ($result_b->num_rows>0) {
+              while($rs=$result_b->fetch_assoc()):
+  ?>
+                <tbody>
+                  <tr>
+                    <th scope="row"><?php echo $rs['id']; ?></th>
+                    <td><?php echo $rs['date']; ?></td>
+                    <td><?php echo $rs['time']; ?></td>
+                    <td>
+                      <?php
+                      $sql="SELECT * FROM services";
+                      $result_doc1=$connect->query($sql);
+                      while($row_doc_data=$result_doc1->fetch_assoc()):
+                        if($row_doc_data['id']==$rs['serv_id']){
+                          echo $row_doc_data['name'];
+                        }
+                      endwhile;
+                      ?>
+                    </td>
+                    <td><?php
+                    $sql="SELECT * FROM users";
+                    $result_user1=$connect->query($sql);
+                    while($row_user_data=$result_user1->fetch_assoc()):
+                      if($row_user_data['id']==$rs['user_id']){
+                        echo $row_user_data['name'];
+                        $user_age=$row_user_data['age'];
+                      }
+                    endwhile;
+                    
+                   ?></td>
+                   <td><?php echo $user_age; ?></td>
                   </tr>
                 </tbody>
                 <?php endwhile; ?>

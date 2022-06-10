@@ -116,6 +116,23 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#services-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="services-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?php echo $site_url; ?>/admin/add-service.php">
+              <i class="bi bi-circle"></i><span>Add Services</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo $site_url; ?>/admin/services.php">
+              <i class="bi bi-circle"></i><span>Services data</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#doctors-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-file-earmark-person"></i><span>Doctors</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -133,10 +150,10 @@
         </ul>
       </li><!-- End Components Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#services-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#categories-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Categories</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="services-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <ul id="categories-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
             <a href="<?php echo $site_url; ?>/admin/add-category.php">
               <i class="bi bi-circle"></i><span>Add Categories</span>
