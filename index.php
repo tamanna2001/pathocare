@@ -30,8 +30,8 @@
             <img src="img/img1.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
           </div>
           <div class="col-lg-6">
-            <h1 class="display-5 fw-bold lh-1 mb-3">No. 1 Pathology Lab in Your Area</h1>
-            <p class="lead">We focus on providing patients quality diagnostic healthcare services in India. Through our network, we offer patients convenient locations for their diagnostic laboratory services and efficient service. With over 5000+ diagnostic tests and related healthcare tests and services offered, we believe we are capable of performing substantially all of the diagnostic healthcare tests and services currently prescribed by physicians in India. By delivering most accurate reports over the years, Dr. Lal PathLabs has earned the reputation of being amongst the most trustworthy and reliable pathology labs in India.
+            <h1 class="display-5 fw-bold lh-1 mb-3">No. 1 Diagnostic Lab Cum Doctors Chamber in Your Area</h1>
+            <p class="lead">We focus on providing patients quality diagnostic healthcare services and doctors appointment booking in India. Through our network, we offer patients convenient locations for their diagnostic laboratory services and efficient service. With over 5000+ diagnostic tests and related healthcare tests and services offered, we believe we are capable of performing substantially all of the diagnostic healthcare tests and services currently prescribed by physicians in India. By delivering most accurate reports over the years, Pathocare has earned the reputation of being amongst the most trustworthy and reliable pathology labs in India.
 
 </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
