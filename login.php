@@ -41,7 +41,7 @@ if (isset($_REQUEST['login'])) {
           exit();
       }
       else{
-          echo "<script>alert('Invalid username or email or password!');</script>";
+          echo "<script>alert('Invalid Phone Number or password!');</script>";
       }
   }
   else{
