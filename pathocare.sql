@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2022 at 06:50 PM
+-- Generation Time: Jun 11, 2022 at 05:23 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -40,10 +40,9 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `doc_id`, `user_id`, `date`, `time`) VALUES
-(1, 1, 1, '2022-06-25', '17:20'),
-(2, 3, 1, '2022-06-07', '17:23'),
 (3, 2, 2, '2022-06-16', '17:40'),
-(6, 2, 1, '2022-06-08', '12:00');
+(6, 2, 1, '2022-06-08', '12:00'),
+(7, 1, 2, '2022-06-10', '13:19');
 
 -- --------------------------------------------------------
 
@@ -65,7 +64,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (2, 'Orthopedic'),
 (3, 'Anesthesiologists'),
 (4, 'Cardiologists'),
-(5, 'Endocrinologists');
+(6, 'General Physicians');
 
 -- --------------------------------------------------------
 
@@ -88,7 +87,7 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `name`, `registration_number`, `phone_number`, `time`, `degree`, `category`) VALUES
-(1, 'Arpita', '10', '7074883264', 'Monday - Wednesday (From 10 A.M. - 9 P.M.)', 'Double M.B.B.S. from USA', '3'),
+(1, 'Arpita', '10', '7074883264', 'Monday - Wednesday (From 10 A.M. - 9 P.M.)', 'Double M.B.B.S. from USA', '6'),
 (2, 'Poppy', '02', '7074883204', 'Monday - Friday (From 1 P.M. - 2 P.M.)', 'M.B.B.S. from India', '2'),
 (3, 'Nandita', '03', '7074583204', 'Tuesday - Friday (From 9 A.M. - 2 P.M.)', 'M.B.B.S. from Canada', '1');
 
@@ -101,6 +100,7 @@ INSERT INTO `doctors` (`id`, `name`, `registration_number`, `phone_number`, `tim
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
+  `time` text NOT NULL,
   `details` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -108,8 +108,30 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `name`, `details`) VALUES
-(1, 'Blood Test', 'Test your blood with an efficient way from here.');
+INSERT INTO `services` (`id`, `name`, `time`, `details`) VALUES
+(2, 'Blood Test', 'Monday - Friday (From 10 A.M. - 9 P.M.)', 'Test your blood with efficiently.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_appoint`
+--
+
+CREATE TABLE `service_appoint` (
+  `id` int(10) NOT NULL,
+  `serv_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `date` date NOT NULL,
+  `time` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_appoint`
+--
+
+INSERT INTO `service_appoint` (`id`, `serv_id`, `user_id`, `date`, `time`) VALUES
+(4, 2, 1, '2022-06-22', '12:22'),
+(5, 2, 2, '2022-06-15', '13:19');
 
 -- --------------------------------------------------------
 
@@ -132,8 +154,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `phone_number`, `gender`, `age`, `address`) VALUES
-(1, 'Tamanna Isalm', '12345', 7074883264, 1, 21, 'Bakultala, nadia'),
-(2, 'Akash Sarkar', '543210', 9734845264, 0, 19, 'Nimtala, Nadia');
+(1, 'Tama', '12345', 7074883264, 1, 21, 'Bakultala, nadia'),
+(2, 'Akash Sarkar', '543210', 9734845264, 0, 19, 'Nimtala, Nadia'),
+(3, 'Suraj Das', '123456', 9635596856, 0, 22, 'vill- subuddhipur, P.o- Mahadevpur, dist- Nadia, ps- Haringhata,'),
+(4, 'Sunny', '543210', 8346012730, 1, 23, 'vill- subuddhipur, P.o- Mahadevpur, dist- Nadia, ps- Haringhata,'),
+(5, 'Suraj Das', '254664', 8346012730, 3, 47, 'Kolkata, West Bengal, India');
 
 --
 -- Indexes for dumped tables
@@ -164,6 +189,12 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service_appoint`
+--
+ALTER TABLE `service_appoint`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -177,13 +208,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -195,13 +226,19 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `service_appoint`
+--
+ALTER TABLE `service_appoint`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
