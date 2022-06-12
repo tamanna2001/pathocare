@@ -7,9 +7,9 @@
           <li class="nav-item">
             <a href="<?php echo $site_url; ?>/pages/contact.php" class="nav-link px-2 text-muted">Contact us</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="<?php echo $site_url; ?>/pages/license.php" class="nav-link px-2 text-muted">License</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="<?php echo $site_url; ?>/pages/privacy.php" class="nav-link px-2 text-muted">Privacy & Policy</a>
           </li>
