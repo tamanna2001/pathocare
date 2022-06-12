@@ -12,9 +12,11 @@
     <?php require_once('../header.php'); ?>
 </head>
 <body>
+
+  <img src="../img/ab_banner.jpg" width="100%">
   <div class="container">
       <br>
-      <h1>Doctors</h1>
+      <h1>Services We Provide</h1>
     </div>
     <br>
     <br>

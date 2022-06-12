@@ -23,17 +23,20 @@
   </head>
   <body>
     <main>
-      <!-- <img src="img/ab_banner.jpg" width="100%" > -->
+      <br>
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/ab_banner.jpg" class="d-block w-100" alt="...">
+      <img src="img/banner-1.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/ab_banner.jpg" class="d-block w-100" alt="...">
+      <img src="img/cover1.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/ab_banner.jpg" class="d-block w-100" alt="...">
+      <img src="img/cover3.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/cover2.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
