@@ -63,7 +63,7 @@ if (isset($_REQUEST['login'])) {
     <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
   </head>
   <body class="text-center">
-  <img src="img/Doctors.jpeg" height="100%" >
+  <img src="img/Doctors.jpeg" height="110%" >
     <main class="form-signin w-100 m-auto">
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
       <a href="<?php echo $site_url; ?>"><img
